@@ -47,15 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
       //invalidos.pop(element);
     };
   })
-  function mascara(t, mask){
-    var i = t.value.length;
-    var saida = mask.substring(1,0);
-    var texto = mask.substring(i)
-    
-    if (texto.substring(0,1) != saida){
-      t.value += texto.substring(0,1);
-    }
-  }
 });
 
 function enviar() {
@@ -84,34 +75,3 @@ function enviar() {
   }
   });
 }
-  // $('#form').submit(function(e) {
-    // var request = new XMLHttpRequest();
-    // request.open('POST', 'enviar.php', true);
-    // request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    // request.send(data);
-//   e.preventDefault();
-
-//   var name = $('#name').val();
-//   var email = $('#email').val();
-//   var idade = $('#idade').val();
-  
-//   $.ajax({
-//     url:'lista-clientes.php',
-//     type: 'POST',
-//     data: {
-//       'save': 1,
-//       'name': name,
-//       'email': email,
-//       'idade': idade
-//     },
-//     success: function(response){
-//       $('#name').val('');
-//       $('#email').val('');
-//       $('#idade').val('');
-//       if(response)
-//         $('.listagem tbody').append(response);
-//       else
-//         console.log('erro');
-//     }
-//   });
-// })
