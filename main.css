@@ -5,7 +5,7 @@
   border-color: red;
 }
 .required:before {
-  content: 'Campo Inválido';
+  content: 'Campo Inv\00E1lido';
   color: red;
   position: absolute;
   bottom: -20px;
