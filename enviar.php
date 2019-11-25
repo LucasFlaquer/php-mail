@@ -16,7 +16,7 @@
     //mensagem para o cliente
     $subject = 'Formulário';
     $agradecimento = 'Obrigado por preencher o formulário! aguardo o seu contato.';
-    enviaEmail($email,$nome, $agradecimento, false, $subject);    
+    $email1 = enviaEmail($email,$nome, $agradecimento, false, $subject);    
     //mensagem com os dados submetidos para o dono do provedor
     $subject = 'Formulário de '.$nome;
     $conteudo = "<h3>Resposta de {$nome}</h3>
@@ -26,8 +26,8 @@
       <p><strong>Cidade:</strong> {$cidade} UF: {$UF}</p>
       <p><strong>Mensagem:</strong> {$mensagem}</p>";
     $email = "lucasflaquer.estudophp@gmail.com";
-    enviaEmail($email,$nome, $conteudo, true, $subject);
-    echo $conteudo;
+    $email2 = enviaEmail($email,$nome, $conteudo, true, $subject);
+    echo json_encode(array('email1'=> $email1, 'email2'=>$email2));
   }
 
   function enviaEmail($dest, $destName, $message, $html, $subject) {
@@ -49,9 +49,11 @@
     $enviado = $mail->Send();
 
     if($enviado) {
-      echo "Seu email foi enviado com sucesso";
+      //echo "Seu email foi enviado com sucesso";
+      return true;
     } else {
-      echo "houve um erro enviando seu email: ". $mail->ErroInfo;
+      return false;
+      //echo "houve um erro enviando seu email: ". $mail->ErroInfo;
     }
   }
 ?>

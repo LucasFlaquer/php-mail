@@ -63,12 +63,19 @@ function enviar() {
   },
   success: function(response){
     if(response){
-      document.querySelector('.loading').remove();
-      campos.forEach(element=> {
-        element.value = '';
-      })
-      setTimeout(function(){ alert("Formulário Enviado Com sucesso!"); }, 100);
-      console.log(response);
+      obj = Object.values(JSON.parse(response));
+      if(obj[0] && obj[1]) {
+
+        console.log('deu certo');
+        
+        document.querySelector('.loading').remove();
+        campos.forEach(element=> {
+          element.value = '';
+        })
+        setTimeout(function(){ alert("Formulário Enviado Com sucesso!"); }, 100);
+      } else {
+        alert('ERRO: dados invalidos');
+      }
 
     }else
       console.log('erro');
